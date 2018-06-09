@@ -16,12 +16,10 @@ column_names = [
 
 def parse_comments():
 
-    print("Parsing comments...")
+    print("\tParsing comments...")
 
-    reddit = praw.Reddit(
-        user_agent='Comment Extraction (by /u/yaylindadev)',
-        client_id='2q7spXD1h2mIbQ',
-        client_secret="TI_YtXJmu5aoz8uptNYv9eYqo8g")
+    reddit = praw.Reddit('default',
+        user_agent='Comment Extraction (by /u/yaylindadev)')
 
     data = []
 
@@ -59,7 +57,7 @@ def parse_comments():
 
 def write_to_csv(data):
 
-    print("Writing to csv file...")
+    print("\tWriting to csv file...")
 
     csv_file = open('data.csv', 'w')
     csv_writer = csv.writer(csv_file, delimiter=',')
